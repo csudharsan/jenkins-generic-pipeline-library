@@ -1,0 +1,19 @@
+project:
+  project_name:
+    scm:
+      url: 
+      project:
+      type:
+  docker:
+    dev:
+      url:
+      creds:
+      registry:
+    pre-prod:
+      url:
+      creds:
+      registry:  
+    prod:
+      url:
+      creds:
+      registry:   

@@ -1,0 +1,22 @@
+@Library('ces-jenkins-libraries@develop-sudharch')
+pipelineGeneric(
+    name: 'srv_name',
+    group: 'srv_group',
+    project: 'project_name',
+    chart: 'helm-chart',
+    subCharts: ['chart1', 'chart2'],
+    skipStages: [''],
+
+    scm: [
+        [ stageName: 'Git Checkout']
+    ],
+    build: [
+        [
+            stageName: 'Maven build',
+            cmd: 'mvn clean install', builder: 'maven',
+            bldContainer: 'jenkins-agent-maven:3.6.3-openjdk11'
+        ]
+    ],
+    archiveArtifacts: ['services.yaml'],
+    buildInfra: [ jenkinsNodeLabel: 'node label']
+)
